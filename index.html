@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="shortcut icon" href="./img/ponto3.png" type="image/x-icon">
+  <title>Candy Rush</title>
+</head>
+<body>
+
+  <div class="pixel-car c1"></div>
+  <div class="pixel-car c2"></div>
+  <div class="pixel-car c3"></div>
+  <div class="pixel-car c4"></div>
+
+  <div class="logo-top">
+    <img src="./img/logo.png" >
+  </div>
+
+  <div class="menu">
+    <br><br><br><br><br><br><br>
+    <a href="jogo.html">
+      <button class="btn"> 1 PLAYER</button>
+    </a>
+   <a href="jogo2.html">
+  <button class="btn">2 PLAYERS</button>
+  <button class="btn" onclick="showInstructions()">COMO JOGAR</button>
+  <br>
+  <button class="footer" onclick="about()">SOBRE O DEV</button>
+</div>
+</a>
+
+  <script>
+    function startGame(players) {
+      if(players === 1){
+        alert("1 PLAYER!");
+      } else {
+        alert("2 PLAYERS!");
+      }
+    }
+
+    function about() {
+      alert("feito por você 🍬");
+    }
+  </script>
+
+</body>
+</html>

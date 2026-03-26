@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  image-rendering: pixelated;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffb6d9;
+}
+
+.menu {
+  text-align: center;
+  background: #ff85c1;
+  padding: 80px; /* 🔥 AUMENTEI */
+  border: 8px solid #ff4da6;
+  box-shadow: 8px 8px 0px #b30059;
+  min-width: 500px; /*   largura mínima maior */
+}
+
+.logo-top {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px; /* aumentei um pouco */
+  height: 140px;
+  margin: 0 auto 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff4da6;
+  font-size: 10px;
+}
+
+.logo-top img {  width: 300px; /* ajusta aqui */
+  image-rendering: pixelated;
+  width: 300%;
+  height: 300%;
+  object-fit: contain;
+}
+
+a{
+  text-decoration: none;
+}
+
+.btn {
+  display: block;
+  width: 260px; /* aumentei */
+  margin: 35px ;
+  padding: 16px; /* aumentei */
+  border: 6px solid #b30059;
+  background: #ffd1e8;
+  color: #b30059;
+  font-size: 24px; /* 🔥 DIMINUÍ (50 tava enorme kkk) */
+  cursor: pointer;
+  box-shadow: 6px 6px 0px #b30059;
+}
+
+.btn:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0px #b30059;
+}
+
+.btn:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0px 0px 0px #b30059;
+}
+
+.footer {
+  margin-top: 25px;
+  font-size: px;
+  display: block;
+  width: 300px; /* aumentei */
+  margin: 15px ;
+  padding: 10px; /* aumentei */
+  border: 6px solid #b30059;
+  background: #ffd1e8;
+  color: #b30059;
+  cursor: pointer;
+  box-shadow: 6px 6px 0px #b30059;
+}
+
+.footer:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0px #b30059;
+}
+
+.footer:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0px 0px 0px #b30059;
+}
+
+.pixel-car {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+
+  background-image: url("carro.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  image-rendering: pixelated;
+
+  animation: float 2s infinite steps(2);
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
