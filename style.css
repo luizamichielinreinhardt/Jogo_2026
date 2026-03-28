@@ -11,7 +11,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffb6d9;
+  background-image: url(./img/imgfundo.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .menu {
@@ -25,20 +28,16 @@ body {
 
 .logo-top {
   position: absolute;
-  top: 10px;
+  top: 110px; 
   left: 50%;
-  transform: translateX(-50%);
-  width: 260px; /* aumentei um pouco */
-  height: 140px;
-  margin: 0 auto 3px;
+  transform: translate(-50%); /* sobe metade dela */
+  width: 150px;
+  height: 170px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ff4da6;
-  font-size: 10px;
 }
-
-.logo-top img {  width: 300px; /* ajusta aqui */
+.logo-top img {  
   image-rendering: pixelated;
   width: 300%;
   height: 300%;
@@ -74,7 +73,7 @@ a{
 
 .footer {
   margin-top: 25px;
-  font-size: px;
+  font-size: 30px;
   display: block;
   width: 300px; /* aumentei */
   margin: 15px ;
@@ -98,16 +97,59 @@ a{
 
 .pixel-car {
   position: absolute;
-  width: 40px;
-  height: 40px;
-
-  background-image: url("carro.png");
+  width: 200px;
+  height: 115px;
   background-size: cover;
   background-repeat: no-repeat;
-
-  image-rendering: pixelated;
-
   animation: float 2s infinite steps(2);
+}
+
+.c1{
+  top: 10%;
+  left: 10%;
+  background-image: url("./img/carro.png");
+}
+
+.c2{
+  top: 30%;
+  right: 10%;
+  /* background-image: url */
+}
+
+.c3{
+  bottom: 20%;
+  left: 20%;
+  background-image: url("./img/carro_inimigo2.png");
+}
+
+.c4{
+  bottom: 10%;
+  right: 15%;
+  background-image: url("./img/carro_paginaIni1.png");
+}
+
+.c5{
+  top: 20%;
+  left: 15%;
+  background-image: url("./img/candy1.png");
+}
+
+.c6{
+  top: 40%;
+  right: 20%;
+  background-image: url("./img/candy2.png");
+}
+
+.c7{
+  bottom: 30%;
+  left: 25%;
+  background-image: url("./img/candy3.png");
+}
+
+.c8{
+  bottom: 15%;
+  right: 25%;
+  background-image: url("./img/candy4.png");
 }
 
 @keyframes float {

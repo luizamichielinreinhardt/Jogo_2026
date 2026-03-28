@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* 🔥 ISSO resolve */
+  justify-content: center;
+  align-items: center;
+  background-image: url(./img/imgfundo.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.menu {
+  text-align: center;
+  font-size: 30px;
+  background: #ff85c1;
+  padding: 80px; 
+  border: 8px solid #ff4da6;
+  box-shadow: 8px 8px 0px #b30059;
+  min-width: 500px; 
+}
+
+.btn {
+  display: block;
+  width: 260px; /* aumentei */
+  margin: 35px ;
+  padding: 16px; /* aumentei */
+  border: 6px solid #b30059;
+  background: #ffd1e8;
+  color: #b30059;
+  font-size: 24px; /* 🔥 DIMINUÍ (50 tava enorme kkk) */
+  cursor: pointer;
+  box-shadow: 6px 6px 0px #b30059;
+}
+
+.btn:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0px #b30059;
+}
+
+.btn:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0px 0px 0px #b30059;
+}
+
+a{
+    text-decoration: none;
+}
+
+.footer {
+  margin-top: 25px;
+  font-size: 30px;
+  display: block;
+  width: 300px; /* aumentei */
+  margin: 15px ;
+  padding: 10px; /* aumentei */
+  border: 6px solid #b30059;
+  background: #ffd1e8;
+  color: #b30059;
+  cursor: pointer;
+  box-shadow: 6px 6px 0px #b30059;
+}
+
+.footer:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0px #b30059;
+}
+
+.footer:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0px 0px 0px #b30059;
+}
