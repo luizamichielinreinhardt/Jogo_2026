@@ -20,7 +20,7 @@ body {
 .menu {
   text-align: center; 
   background: #ff85c1;
-  padding: 80px; /* 🔥 AUMENTEI */
+  padding: 100px 80px 40px;
   border: 8px solid #ff4da6;
   box-shadow: 8px 8px 0px #b30059;
   min-width: 500px; /*   largura mínima maior */
@@ -28,10 +28,10 @@ body {
 
 .logo-top {
   position: absolute;
-  top: 110px; 
+  top: 70px; 
   left: 50%;
   transform: translate(-50%); /* sobe metade dela */
-  width: 150px;
+  width: 120px;
   height: 170px;
   display: flex;
   align-items: center;

@@ -31,10 +31,10 @@ body {
 }
 .logo-top {
   position: absolute;
-  top: -330px; 
+  top: -270px; 
   left: 50%;
   transform: translate(-50%); /* sobe metade dela */
-  width: 400px;
+  width: 350px;
 }
 .logo-top img {  
   width: 100%;
@@ -80,7 +80,7 @@ a{
 .candy {
   position: absolute;
   width: 80px;
-  height: 95px;
+  height: 100px;
   background-size: cover;
   background-repeat: no-repeat;
   animation: float 2s infinite steps(2);
@@ -93,7 +93,7 @@ a{
 }
 
 .c2{
-  top: 8%;
+  top: 4%;
   right: 5%;
   background-image: url(img/carro_inimigo4.png)
 }

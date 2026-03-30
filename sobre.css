@@ -20,9 +20,8 @@ body {
 
 .logo-top {
   right: 10%;
-  top: -400px; 
+  top: -320px; 
   width: 320px;
-  margin-bottom: -60px;
   position: relative;
   z-index: 10;
 }
@@ -34,6 +33,7 @@ body {
 }
 
 .container {
+  top: 20%;
   position: absolute;
   display: flex;
   gap: 0;
@@ -225,6 +225,24 @@ body {
 .info-item + .info-item {
   border-top: 2px dashed #ff4da6;
   padding-top: 14px;
+}
+
+.redes-sociais {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.redes-sociais img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.1s;
+}
+
+.redes-sociais img:hover {
+  transform: scale(1.15);
 }
 
 @media (max-width: 760px) {
