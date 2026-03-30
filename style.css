@@ -18,7 +18,7 @@ body {
 }
 
 .menu {
-  text-align: center;
+  text-align: center; 
   background: #ff85c1;
   padding: 80px; /* 🔥 AUMENTEI */
   border: 8px solid #ff4da6;
@@ -97,8 +97,17 @@ a{
 
 .pixel-car {
   position: absolute;
-  width: 200px;
-  height: 115px;
+  width: 300px;
+  height: 170px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: float 2s infinite steps(2);
+}
+
+.candy {
+  position: absolute;
+  width: 80px;
+  height: 95px;
   background-size: cover;
   background-repeat: no-repeat;
   animation: float 2s infinite steps(2);
@@ -113,12 +122,12 @@ a{
 .c2{
   top: 30%;
   right: 10%;
-  /* background-image: url */
+  background-image: url(img/carro_inimigo4.png)
 }
 
 .c3{
-  bottom: 20%;
-  left: 20%;
+  bottom: 10%;
+  left: 15%;
   background-image: url("./img/carro_inimigo2.png");
 }
 
@@ -129,27 +138,27 @@ a{
 }
 
 .c5{
-  top: 20%;
-  left: 15%;
-  background-image: url("./img/candy1.png");
+  top: 40%;
+  left: 5%;
+  background-image: url("./img/ponto1.png");
 }
 
 .c6{
-  top: 40%;
-  right: 20%;
-  background-image: url("./img/candy2.png");
+  top: 20%;
+  right: 25%;
+  background-image: url("./img/ponto2.png");
 }
 
 .c7{
-  bottom: 30%;
-  left: 25%;
-  background-image: url("./img/candy3.png");
+  bottom: 40%;
+  left: 30%;
+  background-image: url("./img/ponto3.png");
 }
 
 .c8{
-  bottom: 15%;
-  right: 25%;
-  background-image: url("./img/candy4.png");
+  bottom: 30%;
+  right: 6%;
+  background-image: url("./img/ponto4.png");
 }
 
 @keyframes float {
