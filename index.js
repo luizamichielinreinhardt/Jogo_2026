@@ -1,22 +1,19 @@
 let des = document.getElementById('des').getContext('2d')
 
-let carroInimigo  = new CarroInimigo(1300, 200, 130, 130, './img/carro_inimigo1.png')
-let carroInimigo2 = new CarroInimigo(1500, 350, 123, 125, './img/carro_inimigo2.png')
-let carroInimigo3 = new CarroInimigo(1700, 500, 125, 120, './img/carro_inimigo3.png')
-let carroInimigo4 = new CarroInimigo(1700, 500, 125, 120, './img/carro_inimigo4.png')
+// ─── Inimigos ─────────────────────────────────────────────────────────────────
+let carroInimigo  = new CarroInimigo(1300, 150, 130, 130, './img/carro_inimigo1.png')
+let carroInimigo2 = new CarroInimigo(1600, 320, 123, 125, './img/carro_inimigo2.png')
+let carroInimigo3 = new CarroInimigo(1900, 480, 125, 120, './img/carro_inimigo3.png')
+let carroInimigo4 = new CarroInimigo(2200, 230, 125, 120, './img/carro_inimigo4.png')
 
-let powerVida  = new CarroInimigo(1400, 200, 45, 35, './img/vida.png')
-let powerPonto = new CarroInimigo(1600, 400, 60, 60, './img/ponto1.png')
-
-let estrada  = new Estrada(10,  345, 40, 10)
-let estrada2 = new Estrada(80,  345, 40, 10)
-let estrada3 = new Estrada(140, 345, 40, 10)
+// ─── Power-ups ────────────────────────────────────────────────────────────────
+let powerVida   = new CarroInimigo(1500, 120, 45, 35,  './img/vida.png')
+let powerPonto1 = new CarroInimigo(1400, 260, 60, 60,  './img/ponto1.png')
+let powerPonto2 = new CarroInimigo(1750, 420, 60, 60,  './img/ponto2.png')
+let powerPonto3 = new CarroInimigo(2000, 180, 60, 60,  './img/ponto3.png')
+let powerPonto4 = new CarroInimigo(2300, 520, 60, 60,  './img/ponto4.png')
 
 let carro = new Carro(100, 325, 125, 120, './img/carro.png')
-
-let t1       = new Text()
-let t2       = new Text()
-let fase_txt = new Text()
 
 let motor  = new Audio('./img/motor.wav')
 let batida = new Audio('./img/batida.mp3')
@@ -24,37 +21,76 @@ motor.volume  = 0.5
 motor.loop    = true
 batida.volume = 0.5
 
-let jogar           = true
-let fase            = 1
-let faseMsgTimer    = 0
-let vitoria         = false
-let velocidadeVit   = 8
+let jogar         = true
+let fase          = 1
+let faseMsgTimer  = 0
+let vitoria       = false
+let velocidadeVit = 8
 
+const VIDA_MAX = 5
+
+// ─── Fundos por fase ──────────────────────────────────────────────────────────
+const fundosPorFase = {
+    1: './img/fundo_1.png',
+    2: './img/fundo_2.png',
+    3: './img/fundo_3.png',
+    4: './img/fundo_4.png',
+}
+
+function trocarFundo(novaFase) {
+    const canvas = document.getElementById('des')
+    canvas.style.backgroundImage = `url('${fundosPorFase[novaFase] || fundosPorFase[1]}')`
+}
+
+// ─── Flag de coletado para powerups ──────────────────────────────────────────
+// Cada powerup tem .coletado = false
+// Quando o jogador colide, marca true e processa UMA vez
+// Só reseta quando o objeto reaparece (recomeca)
+powerVida.coletado   = false
+powerPonto1.coletado = false
+powerPonto2.coletado = false
+powerPonto3.coletado = false
+powerPonto4.coletado = false
+
+// ─── recomeca com faixas de Y por objeto ─────────────────────────────────────
+function makeRecomeca(obj, yMin, yMax) {
+    obj.recomeca = function() {
+        this.x = 1300 + Math.floor(Math.random() * 400)
+        this.y = Math.floor(Math.random() * (yMax - yMin) + yMin)
+        this.coletado = false
+    }
+}
+
+makeRecomeca(powerPonto1,  62, 190)
+makeRecomeca(powerPonto2, 190, 320)
+makeRecomeca(powerPonto3, 320, 450)
+makeRecomeca(powerPonto4, 450, 638)
+makeRecomeca(powerVida,    62, 638)
+
+// ─── Controles ────────────────────────────────────────────────────────────────
 document.addEventListener('keydown', (e) => {
     motor.play()
-    if (e.key === 'w' || e.key === 'ArrowUp') {
-        carro.dir -= 10
-    } else if (e.key === 's' || e.key === 'ArrowDown') {
-        carro.dir += 10
-    }
+    if (e.key === 'w' || e.key === 'ArrowUp')       carro.dir -= 10
+    else if (e.key === 's' || e.key === 'ArrowDown') carro.dir += 10
 })
 
 document.addEventListener('keyup', (e) => {
-    if (e.key === 'w' || e.key === 'ArrowUp') {
-        carro.dir = 0
-    } else if (e.key === 's' || e.key === 'ArrowDown') {
-        carro.dir = 0
-    }
+    if (e.key === 'w' || e.key === 'ArrowUp')       carro.dir = 0
+    else if (e.key === 's' || e.key === 'ArrowDown') carro.dir = 0
 })
 
+// ─── HUD ──────────────────────────────────────────────────────────────────────
 function atualizaHUD() {
     let coracoes = ''
-    for (let i = 0; i < carro.vida; i++) coracoes += '💗'
-    document.getElementById('hud-vidas').innerHTML = `<span style="font-size:24px;letter-spacing:4px;">${coracoes}</span>`
-    document.getElementById('hud-fase').innerHTML  = `<span>👑 FASE ${fase}</span>`
-    document.getElementById('hud-pontos').innerHTML = `<span>💎 ${carro.pontos}</span>`
+    for (let i = 0; i < carro.vida; i++) {
+        coracoes += `<span class="coracao">💗</span>`
+    }
+    document.getElementById('hud-vidas').innerHTML  = coracoes
+    document.getElementById('hud-fase').innerHTML   = `<span>🍬 FASE ${fase}</span>`
+    document.getElementById('hud-pontos').innerHTML = `<span>🍭 ${carro.pontos}</span>`
 }
 
+// ─── Lógica de jogo ───────────────────────────────────────────────────────────
 function game_over() {
     if (carro.vida <= 0) {
         jogar = false
@@ -65,6 +101,7 @@ function game_over() {
 function mudarFase(novaFase, vel) {
     fase = novaFase
     faseMsgTimer = 150
+    trocarFundo(novaFase)
     carroInimigo.vel  = vel
     carroInimigo2.vel = vel
     carroInimigo3.vel = vel
@@ -72,49 +109,70 @@ function mudarFase(novaFase, vel) {
 }
 
 function ver_fase() {
-    if      (carro.pontos > 20 && fase === 1) mudarFase(2, 4)
-    else if (carro.pontos > 40 && fase === 2) mudarFase(3, 6)
-    else if (carro.pontos > 60 && fase === 3) mudarFase(4, 8)
-    else if (carro.pontos > 80 && fase === 4) {
+    if      (fase === 1 && carro.pontos >= 40)  mudarFase(2, 4)
+    else if (fase === 2 && carro.pontos >= 150) mudarFase(3, 6)
+    else if (fase === 3 && carro.pontos >= 200) mudarFase(4, 8)
+    else if (fase === 4 && carro.pontos >= 300) {
         jogar   = false
         vitoria = true
         motor.pause()
     }
 }
 
+const inimigos = [carroInimigo, carroInimigo2, carroInimigo3, carroInimigo4]
+inimigos.forEach(i => i.pontuou = false)
+
 function colisao() {
-    [carroInimigo, carroInimigo2, carroInimigo3, carroInimigo4].forEach(inimigo => {
+    inimigos.forEach(inimigo => {
         if (carro.colid(inimigo)) {
             batida.play()
             inimigo.recomeca()
+            inimigo.pontuou = false
             carro.vida -= 1
         }
     })
 }
 
 function pontuacao() {
-    [carroInimigo, carroInimigo2, carroInimigo3, carroInimigo4].forEach(inimigo => {
-        if (carro.point(inimigo)) {
-            carro.pontos += 5
+    inimigos.forEach(inimigo => {
+        if (!inimigo.pontuou && inimigo.x <= -100) {
+            carro.pontos += 4
+            inimigo.pontuou = true
+        }
+        if (inimigo.x <= -200) {
             inimigo.recomeca()
+            inimigo.pontuou = false
         }
     })
 }
 
+const doces = [powerPonto1, powerPonto2, powerPonto3, powerPonto4]
+
 function powerups() {
-    if (carro.colid(powerVida)) {
-        carro.vida += 1
-        powerVida.recomeca()
-        const el = document.getElementById('hud-vidas')
-        el.classList.add('ganhou')
-        setTimeout(() => el.classList.remove('ganhou'), 300)
+    // ── Coração: flag garante que só conta UMA vez por aparição ──
+    if (!powerVida.coletado && carro.colid(powerVida)) {
+        powerVida.coletado = true
+        if (carro.vida < VIDA_MAX) {
+            carro.vida += 1
+            const el = document.getElementById('hud-vidas')
+            el.classList.add('ganhou')
+            setTimeout(() => el.classList.remove('ganhou'), 300)
+        }
+        // Reaparece logo após coletado
+        setTimeout(() => powerVida.recomeca(), 100)
     }
-    if (carro.colid(powerPonto)) {
-        carro.pontos += 10
-        powerPonto.recomeca()
-    }
+
+    // ── Doces ──
+    doces.forEach(doce => {
+        if (!doce.coletado && carro.colid(doce)) {
+            doce.coletado = true
+            carro.pontos += 5
+            setTimeout(() => doce.recomeca(), 100)
+        }
+    })
 }
 
+// ─── Renderização ─────────────────────────────────────────────────────────────
 function desenhaFaseMsg() {
     if (faseMsgTimer > 0) {
         if (Math.floor(faseMsgTimer / 15) % 2 === 0) {
@@ -128,7 +186,7 @@ function desenhaFaseMsg() {
             des.textAlign   = 'center'
             des.shadowColor = '#b30059'
             des.shadowBlur  = 12
-            des.fillText('⭐ FASE ' + fase + ' ⭐', 600, 355)
+            des.fillText('🍬 FASE ' + fase + ' 🍬', 600, 355)
             des.restore()
         }
         faseMsgTimer--
@@ -137,13 +195,10 @@ function desenhaFaseMsg() {
 
 function desenha() {
     if (jogar) {
-        carroInimigo.des_carro()
-        carroInimigo2.des_carro()
-        carroInimigo3.des_carro()
-        carroInimigo4.des_carro()
+        inimigos.forEach(i => i.des_carro())
         carro.des_carro()
         powerVida.des_carro()
-        powerPonto.des_carro()
+        doces.forEach(d => d.des_carro())
         atualizaHUD()
         desenhaFaseMsg()
 
@@ -185,24 +240,20 @@ function desenha() {
 function atualiza() {
     if (jogar) {
         carro.mov_car()
-        carroInimigo.mov_car()
-        carroInimigo2.mov_car()
-        carroInimigo3.mov_car()
-        carroInimigo4.mov_car()
+        inimigos.forEach(i => i.mov_car())
         powerVida.mov_car()
-        powerPonto.mov_car()
+        doces.forEach(d => d.mov_car())
         colisao()
         pontuacao()
         ver_fase()
         game_over()
         powerups()
     } else if (vitoria) {
-        if (carro.x < 1300) {
-            carro.x += velocidadeVit
-        }
+        if (carro.x < 1300) carro.x += velocidadeVit
     }
 }
 
+// ─── Loop principal ───────────────────────────────────────────────────────────
 function main() {
     des.clearRect(0, 0, 1200, 700)
     desenha()
@@ -210,4 +261,4 @@ function main() {
     requestAnimationFrame(main)
 }
 
-main()                 
+main()
