@@ -12,12 +12,19 @@ let powerPonto1 = new CarroInimigo(1400, 260, 60, 60,  './img/ponto1.png')
 let powerPonto2 = new CarroInimigo(1750, 420, 60, 60,  './img/ponto2.png')
 let powerPonto3 = new CarroInimigo(2000, 180, 60, 60,  './img/ponto3.png')
 let powerPonto4 = new CarroInimigo(2300, 520, 60, 60,  './img/ponto4.png')
+<<<<<<< HEAD
 
 let fimJogo = false 
 let cooldownBatida = 0
 
 let carro  = new Carro(100, 325, 125, 120, './img/carro.png')
 let motor  = new Audio('./img/musica_jogo.mp3')
+=======
+
+let carro = new Carro(100, 325, 125, 120, './img/carro.png')
+
+let motor  = new Audio('./img/motor.wav')
+>>>>>>> 47cad90437aabee7f290b712f2b661f966f1dbfd
 let batida = new Audio('./img/batida.mp3')
 let ponto  = new Audio('./img/pontos.mp3')
 let morre  = new Audio('./img/morte.mp3')
@@ -51,6 +58,12 @@ function trocarFundo(novaFase) {
 }
 
 // ─── Flag de coletado para powerups ──────────────────────────────────────────
+<<<<<<< HEAD
+=======
+// Cada powerup tem .coletado = false
+// Quando o jogador colide, marca true e processa UMA vez
+// Só reseta quando o objeto reaparece (recomeca)
+>>>>>>> 47cad90437aabee7f290b712f2b661f966f1dbfd
 powerVida.coletado   = false
 powerPonto1.coletado = false
 powerPonto2.coletado = false
@@ -93,6 +106,7 @@ function atualizaHUD() {
     document.getElementById('hud-vidas').innerHTML  = coracoes
     document.getElementById('hud-fase').innerHTML   = `<span>🍬 FASE ${fase}</span>`
     document.getElementById('hud-pontos').innerHTML = `<span>🍭 ${carro.pontos}</span>`
+<<<<<<< HEAD
 }
 
 // ─── Lógica de jogo ───────────────────────────────────────────────────────────
@@ -111,8 +125,11 @@ function mostrarOverlay(titulo, cor, pontos) {
 
     document.getElementById('btn-reiniciar').onclick = () => location.reload()
     document.getElementById('btn-inicio').onclick = () => location.href = 'index.html'
+=======
+>>>>>>> 47cad90437aabee7f290b712f2b661f966f1dbfd
 }
 
+// ─── Lógica de jogo ───────────────────────────────────────────────────────────
 function game_over() {
     if (carro.vida <= 0 && !fimJogo) {
         fimJogo = true
@@ -136,10 +153,16 @@ function mudarFase(novaFase, vel) {
 
 function ver_fase() {
     if      (fase === 1 && carro.pontos >= 40)  mudarFase(2, 4)
+<<<<<<< HEAD
     else if (fase === 2 && carro.pontos >= 100) mudarFase(3, 6)
     else if (fase === 3 && carro.pontos >= 180) mudarFase(4, 8)
     else if (fase === 4 && carro.pontos >= 250 && !fimJogo) {
         fimJogo = true
+=======
+    else if (fase === 2 && carro.pontos >= 150) mudarFase(3, 6)
+    else if (fase === 3 && carro.pontos >= 200) mudarFase(4, 8)
+    else if (fase === 4 && carro.pontos >= 300) {
+>>>>>>> 47cad90437aabee7f290b712f2b661f966f1dbfd
         jogar   = false
         vitoria = true
         motor.pause()
@@ -152,11 +175,17 @@ function ver_fase() {
 const inimigos = [carroInimigo, carroInimigo2, carroInimigo3, carroInimigo4]
 inimigos.forEach(i => i.pontuou = false)
 
+const inimigos = [carroInimigo, carroInimigo2, carroInimigo3, carroInimigo4]
+inimigos.forEach(i => i.pontuou = false)
+
 function colisao() {
+<<<<<<< HEAD
     if (cooldownBatida > 0) {
         cooldownBatida--
         return
     }
+=======
+>>>>>>> 47cad90437aabee7f290b712f2b661f966f1dbfd
     inimigos.forEach(inimigo => {
         if (carro.colid(inimigo)) {
             batida.currentTime = 0
@@ -172,7 +201,11 @@ function colisao() {
 function pontuacao() {
     inimigos.forEach(inimigo => {
         if (!inimigo.pontuou && inimigo.x <= -100) {
+<<<<<<< HEAD
             carro.pontos += 8
+=======
+            carro.pontos += 4
+>>>>>>> 47cad90437aabee7f290b712f2b661f966f1dbfd
             inimigo.pontuou = true
         }
         if (inimigo.x <= -200) {
@@ -185,17 +218,27 @@ function pontuacao() {
 const doces = [powerPonto1, powerPonto2, powerPonto3, powerPonto4]
 
 function powerups() {
+<<<<<<< HEAD
     // ── Coração ──
     if (!powerVida.coletado && carro.colid(powerVida)) {
         powerVida.coletado = true
         ponto.currentTime = 0
         ponto.play()
+=======
+    // ── Coração: flag garante que só conta UMA vez por aparição ──
+    if (!powerVida.coletado && carro.colid(powerVida)) {
+        powerVida.coletado = true
+>>>>>>> 47cad90437aabee7f290b712f2b661f966f1dbfd
         if (carro.vida < VIDA_MAX) {
             carro.vida += 1
             const el = document.getElementById('hud-vidas')
             el.classList.add('ganhou')
             setTimeout(() => el.classList.remove('ganhou'), 300)
         }
+<<<<<<< HEAD
+=======
+        // Reaparece logo após coletado
+>>>>>>> 47cad90437aabee7f290b712f2b661f966f1dbfd
         setTimeout(() => powerVida.recomeca(), 100)
     }
 
@@ -204,8 +247,11 @@ function powerups() {
         if (!doce.coletado && carro.colid(doce)) {
             doce.coletado = true
             carro.pontos += 5
+<<<<<<< HEAD
             ponto.currentTime = 0
             ponto.play()
+=======
+>>>>>>> 47cad90437aabee7f290b712f2b661f966f1dbfd
             setTimeout(() => doce.recomeca(), 100)
         }
     })
