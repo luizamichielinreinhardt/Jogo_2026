@@ -19,6 +19,7 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .candy {
     position: absolute;
     width: 70px;
@@ -26,31 +27,31 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     animation: float 2s infinite steps(2);
-  }
-  
-.c5{
+}
+
+.c5 {
     top: 20%;
     left: 5%;
     background-image: url("./img/ponto1.png");
-  }
-  
-  .c6{
+}
+
+.c6 {
     top: 10%;
     right: 3%;
     background-image: url("./img/ponto2.png");
-  }
-  
-  .c7{
+}
+
+.c7 {
     bottom: 10%;
     left: 13%;
     background-image: url("./img/ponto3.png");
-  }
-  
-  .c8{
+}
+
+.c8 {
     bottom: 20%;
     right: 10%;
     background-image: url("./img/ponto4.png");
-  }
+}
 
 #game-wrapper {
     position: relative;
@@ -70,7 +71,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0 36px;
-    z-index: 10;
+    z-index: 20;
     backdrop-filter: blur(4px);
     border-bottom: 3px solid #ff4da6;
 }
@@ -86,7 +87,6 @@ body {
     transform: scale(1.3);
 }
 
-/* Brilho pulsante em cada coração individualmente */
 .coracao {
     font-size: 22px;
     display: inline-block;
@@ -94,9 +94,8 @@ body {
     animation: pulso-coracao 1.6s ease-in-out infinite;
 }
 
-
 @keyframes pulso-coracao {
-    0%,  100% {
+    0%, 100% {
         filter: drop-shadow(0 0 3px #ff4da6) drop-shadow(0 0 7px #ff006666);
         transform: scale(1);
     }
@@ -106,7 +105,6 @@ body {
     }
 }
 
-/* Flash branco ao ganhar vida */
 #hud-vidas.ganhou .coracao {
     animation: none;
     transform: scale(1);
@@ -140,11 +138,56 @@ canvas {
     background-repeat: no-repeat;
     background-position: center;
     box-shadow: 0 0 60px rgba(0,0,0,0.5);
+    z-index: 1;
 }
 
+#overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#overlay-titulo {
+    font-size: 72px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+#overlay-pontos {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.btn {
+    background: linear-gradient(135deg, #ff4da6, #b30059);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 32px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 20px rgba(255, 77, 166, 0.5);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn:hover {
+    transform: scale(1.07);
+    box-shadow: 0 6px 28px rgba(255, 77, 166, 0.8);
+}
 
 @keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-10px); }
     100% { transform: translateY(0); }
-  }
+}

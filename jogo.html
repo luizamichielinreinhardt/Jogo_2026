@@ -9,32 +9,33 @@
     <script src="./index.js" defer></script>
     <title>Candy Rush</title>
 </head>
-
-<div id="overlay" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%; flex-direction:column; align-items:center; justify-content:center; z-index:10;">
-<div id="overlay-titulo" style="font-size:72px; font-weight:bold; margin-bottom:16px;"></div>
-<div id="overlay-pontos" style="font-size:32px; color:#fff; margin-bottom:40px;"></div>
-<div style="display:flex; gap:24px;">
-<button id="btn-reiniciar" class="btn">JOGAR NOVAMENTE</button>
-<button id="btn-inicio" class="btn">VOLTAR AO INÍCIO</button>
-</div>
 <body>
+
   <div class="candy c5"></div>
   <div class="candy c6"></div>
   <div class="candy c7"></div>
   <div class="candy c8"></div>
-    <div id="game-wrapper">
-<<<<<<< HEAD
-        <div id="game-wrapper" style="position:relative;"></div>
-</div>
-=======
 
->>>>>>> 47cad90437aabee7f290b712f2b661f966f1dbfd
-        <div id="hud">
-            <div id="hud-vidas"></div>
-            <div id="hud-fase"></div>
-            <div id="hud-pontos"></div>
-        </div>
-        <canvas id="des" width="1200" height="700"></canvas>
+  <div id="game-wrapper">
+
+    <div id="overlay">
+      <div id="overlay-titulo"></div>
+      <div id="overlay-pontos"></div>
+      <div style="display:flex; gap:24px;">
+        <button id="btn-reiniciar" class="btn">JOGAR NOVAMENTE</button>
+        <button id="btn-inicio" class="btn">VOLTAR AO INÍCIO</button>
+      </div>
     </div>
+
+    <div id="hud">
+      <div id="hud-vidas"></div>
+      <div id="hud-fase"></div>
+      <div id="hud-pontos"></div>
+    </div>
+
+    <canvas id="des" width="1200" height="700"></canvas>
+
+  </div>
+
 </body>
 </html>
