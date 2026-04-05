@@ -13,7 +13,7 @@ let powerPonto2 = new CarroInimigo(1750, 420, 60, 60,  './img/ponto2.png')
 let powerPonto3 = new CarroInimigo(2000, 180, 60, 60,  './img/ponto3.png')
 let powerPonto4 = new CarroInimigo(2300, 520, 60, 60,  './img/ponto4.png')
 
-let fimJogo        = false
+let fimJogo = false
 let cooldownBatida = 0
 
 let carro  = new Carro(100, 325, 125, 120, './img/carro.png')
@@ -37,7 +37,6 @@ let velocidadeVit = 8
 
 const VIDA_MAX = 5
 
-// ─── Fundos por fase ──────────────────────────────────────────────────────────
 const fundosPorFase = {
     1: './img/fundo_1.png',
     2: './img/fundo_2.png',
@@ -50,14 +49,12 @@ function trocarFundo(novaFase) {
     canvas.style.backgroundImage = `url('${fundosPorFase[novaFase] || fundosPorFase[1]}')`
 }
 
-// ─── Flag de coletado para powerups ──────────────────────────────────────────
 powerVida.coletado   = false
 powerPonto1.coletado = false
 powerPonto2.coletado = false
 powerPonto3.coletado = false
 powerPonto4.coletado = false
 
-// ─── recomeca com faixas de Y por objeto ─────────────────────────────────────
 function makeRecomeca(obj, yMin, yMax) {
     obj.recomeca = function() {
         this.x = 1300 + Math.floor(Math.random() * 400)
@@ -72,7 +69,6 @@ makeRecomeca(powerPonto3, 320, 450)
 makeRecomeca(powerPonto4, 450, 638)
 makeRecomeca(powerVida,    62, 638)
 
-// ─── Controles ────────────────────────────────────────────────────────────────
 document.addEventListener('keydown', (e) => {
     motor.play()
     if (e.key === 'w' || e.key === 'ArrowUp')       carro.dir -= 10
@@ -83,8 +79,6 @@ document.addEventListener('keyup', (e) => {
     if (e.key === 'w' || e.key === 'ArrowUp')       carro.dir = 0
     else if (e.key === 's' || e.key === 'ArrowDown') carro.dir = 0
 })
-
-// ─── HUD ──────────────────────────────────────────────────────────────────────
 function atualizaHUD() {
     let coracoes = ''
     for (let i = 0; i < carro.vida; i++) {
@@ -94,8 +88,6 @@ function atualizaHUD() {
     document.getElementById('hud-fase').innerHTML   = `<span>🍬 FASE ${fase}</span>`
     document.getElementById('hud-pontos').innerHTML = `<span>🍭 ${carro.pontos}</span>`
 }
-
-// ─── Overlay ──────────────────────────────────────────────────────────────────
 function mostrarOverlay(titulo, cor) {
     const overlay = document.getElementById('overlay')
     overlay.style.display = 'flex'
@@ -186,7 +178,6 @@ function pontuacao() {
 const doces = [powerPonto1, powerPonto2, powerPonto3, powerPonto4]
 
 function powerups() {
-    // ── Coração ──
     if (!powerVida.coletado && carro.colid(powerVida)) {
         powerVida.coletado = true
         ponto.currentTime = 0
@@ -199,8 +190,6 @@ function powerups() {
         }
         setTimeout(() => powerVida.recomeca(), 100)
     }
-
-    // ── Doces ──
     doces.forEach(doce => {
         if (!doce.coletado && carro.colid(doce)) {
             doce.coletado = true
@@ -212,7 +201,6 @@ function powerups() {
     })
 }
 
-// ─── Renderização ─────────────────────────────────────────────────────────────
 function desenhaFaseMsg() {
     if (faseMsgTimer > 0) {
         if (Math.floor(faseMsgTimer / 15) % 2 === 0) {

@@ -8,7 +8,7 @@
 body {
   height: 100vh;
   display: flex;
-  flex-direction: column; /* 🔥 ISSO resolve */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url(./img/imgfundo.png);
@@ -33,7 +33,7 @@ body {
   position: absolute;
   top: -270px; 
   left: 50%;
-  transform: translate(-50%); /* sobe metade dela */
+  transform: translate(-50%); 
   width: 350px;
 }
 .logo-top img {  
@@ -44,13 +44,13 @@ body {
 
 .btn {
   display: block;
-  width: 260px; /* aumentei */
+  width: 260px; 
   margin: 35px ;
-  padding: 16px; /* aumentei */
+  padding: 16px; 
   border: 6px solid #b30059;
   background: #ffd1e8;
   color: #b30059;
-  font-size: 24px; /* 🔥 DIMINUÍ (50 tava enorme kkk) */
+  font-size: 24px; 
   cursor: pointer;
   box-shadow: 6px 6px 0px #b30059;
 }
@@ -115,9 +115,9 @@ a{
   margin-top: 25px;
   font-size: 30px;
   display: block;
-  width: 300px; /* aumentei */
+  width: 300px; 
   margin: 15px ;
-  padding: 10px; /* aumentei */
+  padding: 10px; 
   border: 6px solid #b30059;
   background: #ffd1e8;
   color: #b30059;

@@ -3,11 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-html, body {
+html, body { /* Espaçamento do topo da tela */
     height: 100%;
 }
-
 body {
     background-image: url(./img/imgfundo.png);
     background-size: cover;
@@ -19,7 +17,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 .candy {
     position: absolute;
     width: 70px;
@@ -28,37 +25,31 @@ body {
     background-repeat: no-repeat;
     animation: float 2s infinite steps(2);
 }
-
 .c5 {
     top: 20%;
     left: 5%;
     background-image: url("./img/ponto1.png");
 }
-
 .c6 {
     top: 10%;
     right: 3%;
     background-image: url("./img/ponto2.png");
 }
-
 .c7 {
     bottom: 10%;
     left: 13%;
     background-image: url("./img/ponto3.png");
 }
-
 .c8 {
     bottom: 20%;
     right: 10%;
     background-image: url("./img/ponto4.png");
 }
-
 #game-wrapper {
     position: relative;
     width: 1200px;
     height: 700px;
 }
-
 #hud {
     position: absolute;
     top: 0;
@@ -75,42 +66,20 @@ body {
     backdrop-filter: blur(4px);
     border-bottom: 3px solid #ff4da6;
 }
-
 #hud-vidas {
     display: flex;
     align-items: center;
     gap: 6px;
     transition: transform 0.15s;
 }
-
-#hud-vidas.ganhou {
+#hud-vidas.ganhou { /* animação quando pega um coração*/
     transform: scale(1.3);
 }
-
 .coracao {
     font-size: 22px;
-    display: inline-block;
     filter: drop-shadow(0 0 4px #ff4da6) drop-shadow(0 0 8px #ff006699);
     animation: pulso-coracao 1.6s ease-in-out infinite;
 }
-
-@keyframes pulso-coracao {
-    0%, 100% {
-        filter: drop-shadow(0 0 3px #ff4da6) drop-shadow(0 0 7px #ff006666);
-        transform: scale(1);
-    }
-    50% {
-        filter: drop-shadow(0 0 8px #ff80c0) drop-shadow(0 0 16px #ff4da6cc);
-        transform: scale(1.12);
-    }
-}
-
-#hud-vidas.ganhou .coracao {
-    animation: none;
-    transform: scale(1);
-    filter: drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #ff4da6);
-}
-
 #hud-fase {
     font-size: 20px;
     font-weight: bold;
@@ -118,14 +87,12 @@ body {
     letter-spacing: 2px;
     text-shadow: 1px 1px 0 #7a0040;
 }
-
 #hud-pontos {
     font-size: 20px;
     font-weight: bold;
     color: #fff;
     text-shadow: 1px 1px 0 #7a0040;
 }
-
 canvas {
     position: absolute;
     top: 0;
@@ -140,7 +107,6 @@ canvas {
     box-shadow: 0 0 60px rgba(0,0,0,0.5);
     z-index: 1;
 }
-
 #overlay {
     display: none;
     position: absolute;
@@ -154,19 +120,16 @@ canvas {
     align-items: center;
     justify-content: center;
 }
-
 #overlay-titulo {
     font-size: 72px;
     font-weight: bold;
     margin-bottom: 16px;
 }
-
 #overlay-pontos {
     font-size: 32px;
     color: #fff;
     margin-bottom: 40px;
 }
-
 .btn {
     background: linear-gradient(135deg, #ff4da6, #b30059);
     color: #fff;
@@ -180,12 +143,10 @@ canvas {
     box-shadow: 0 4px 20px rgba(255, 77, 166, 0.5);
     transition: transform 0.15s, box-shadow 0.15s;
 }
-
 .btn:hover {
     transform: scale(1.07);
     box-shadow: 0 6px 28px rgba(255, 77, 166, 0.8);
 }
-
 @keyframes float {
     0%   { transform: translateY(0); }
     50%  { transform: translateY(-10px); }

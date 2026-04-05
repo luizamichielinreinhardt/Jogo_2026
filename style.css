@@ -18,45 +18,46 @@ body {
 }
 
 .menu {
-  text-align: center; 
+  text-align: center;
   background: #ff85c1;
   padding: 100px 80px 40px;
   border: 8px solid #ff4da6;
   box-shadow: 8px 8px 0px #b30059;
-  min-width: 500px; /*   largura mínima maior */
+  min-width: 500px;
 }
 
 .logo-top {
   position: absolute;
-  top: 70px; 
+  top: 70px;
   left: 50%;
-  transform: translate(-50%); /* sobe metade dela */
+  transform: translate(-50%);
   width: 120px;
   height: 170px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.logo-top img {  
+
+.logo-top img {
   image-rendering: pixelated;
   width: 300%;
   height: 300%;
   object-fit: contain;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
 .btn {
   display: block;
-  width: 260px; /* aumentei */
-  margin: 35px ;
-  padding: 16px; /* aumentei */
+  width: 260px;
+  margin: 35px;
+  padding: 16px;
   border: 6px solid #b30059;
   background: #ffd1e8;
   color: #b30059;
-  font-size: 24px; /* 🔥 DIMINUÍ (50 tava enorme kkk) */
+  font-size: 24px;
   cursor: pointer;
   box-shadow: 6px 6px 0px #b30059;
 }
@@ -66,18 +67,13 @@ a{
   box-shadow: 3px 3px 0px #b30059;
 }
 
-.btn:active {
-  transform: translate(6px, 6px);
-  box-shadow: 0px 0px 0px #b30059;
-}
-
 .footer {
   margin-top: 25px;
   font-size: 30px;
   display: block;
-  width: 300px; /* aumentei */
-  margin: 15px ;
-  padding: 10px; /* aumentei */
+  width: 300px;
+  margin: 15px;
+  padding: 10px;
   border: 6px solid #b30059;
   background: #ffd1e8;
   color: #b30059;
@@ -90,11 +86,7 @@ a{
   box-shadow: 3px 3px 0px #b30059;
 }
 
-.footer:active {
-  transform: translate(6px, 6px);
-  box-shadow: 0px 0px 0px #b30059;
-}
-
+/* Elementos que ficam se mexendo na tela: */
 .pixel-car {
   position: absolute;
   width: 300px;
@@ -113,56 +105,64 @@ a{
   animation: float 2s infinite steps(2);
 }
 
-.c1{
+.c1 {
   top: 10%;
   left: 10%;
   background-image: url("./img/carro.png");
 }
 
-.c2{
+.c2 {
   top: 30%;
   right: 10%;
   background-image: url(img/carro_inimigo4.png)
 }
 
-.c3{
+.c3 {
   bottom: 10%;
   left: 15%;
   background-image: url("./img/carro_inimigo2.png");
 }
 
-.c4{
+.c4 {
   bottom: 10%;
   right: 15%;
   background-image: url("./img/carro_paginaIni1.png");
 }
 
-.c5{
+.c5 {
   top: 40%;
   left: 5%;
   background-image: url("./img/ponto1.png");
 }
 
-.c6{
+.c6 {
   top: 20%;
   right: 25%;
   background-image: url("./img/ponto2.png");
 }
 
-.c7{
+.c7 {
   bottom: 40%;
   left: 30%;
   background-image: url("./img/ponto3.png");
 }
 
-.c8{
+.c8 {
   bottom: 30%;
   right: 6%;
   background-image: url("./img/ponto4.png");
 }
 
 @keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }

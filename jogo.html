@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./jogo.css">
     <link rel="shortcut icon" href="./img/ponto2.png" type="image/x-icon">
     <script src="./models/Carro.js" defer></script>
-    <script src="./index.js" defer></script>
+    <script src="./jogo.js" defer></script>
     <title>Candy Rush</title>
 </head>
 <body>
@@ -16,8 +16,8 @@
   <div class="candy c7"></div>
   <div class="candy c8"></div>
 
+  <!-- Parte aonde acontece o jogo. -->
   <div id="game-wrapper">
-
     <div id="overlay">
       <div id="overlay-titulo"></div>
       <div id="overlay-pontos"></div>
@@ -25,8 +25,9 @@
         <button id="btn-reiniciar" class="btn">JOGAR NOVAMENTE</button>
         <button id="btn-inicio" class="btn">VOLTAR AO INÍCIO</button>
       </div>
-    </div>
+  </div>
 
+  <!-- Marcadores de vida, fases e pontos suspensos -->
     <div id="hud">
       <div id="hud-vidas"></div>
       <div id="hud-fase"></div>
@@ -34,7 +35,6 @@
     </div>
 
     <canvas id="des" width="1200" height="700"></canvas>
-
   </div>
 
 </body>

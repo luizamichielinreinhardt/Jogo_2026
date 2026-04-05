@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./jogo2.css">
+    <link rel="shortcut icon" href="./img/ponto2.png" type="image/x-icon">
+    <script src="./models/Carro.js" defer></script>
+    <script src="./jogo2.js" defer></script>
+    <title>Candy Rush - 2 Players</title>
+</head>
+<body>
+
+  <!-- Tela de seleção -->
+  <div id="tela-selecao">
+
+    <div class="pixel-car c1"></div>
+    <div class="pixel-car c2"></div>
+    <div class="pixel-car c3"></div>
+    <div class="pixel-car c4"></div>
+    <div class="candy c5"></div>
+    <div class="candy c6"></div>
+    <div class="candy c7"></div>
+    <div class="candy c8"></div>
+
+    <div class="logo-top">
+      <img src="./img/logo.png">
+    </div>
+
+    <div class="menu-selecao">
+
+      <div class="selecao-titulo">2 PLAYERS</div>
+
+      <div class="selecao-jogadores">
+
+        <div class="jogador-card">
+          <img class="jogador-img" src="./img/vanellope.png" alt="Vanellope">
+          <div class="jogador-nome vanellope-cor">VANELLOPE</div>
+          <div class="jogador-controles">W / S</div>
+        </div>
+
+        <div class="vs-text">VS</div>
+
+        <div class="jogador-card">
+          <img class="jogador-img" src="./img/taffyta.png" alt="Taffyta">
+          <div class="jogador-nome taffyta-cor">TAFFYTA</div>
+          <div class="jogador-controles">↑ / ↓</div>
+        </div>
+
+      </div>
+
+      <button class="btn-pixel" id="btn-comecar">▶ COMEÇAR!</button>
+      <a href="index.html"><button class="btn-footer">← VOLTAR</button></a>
+
+    </div>
+  </div>
+
+  <!-- Tela do jogo -->
+  <div id="game-area" style="display:none;">
+
+    <div class="candy gc5"></div>
+    <div class="candy gc6"></div>
+    <div class="candy gc7"></div>
+    <div class="candy gc8"></div>
+
+    <div id="game-wrapper">
+
+      <div id="overlay">
+        <div id="overlay-titulo"></div>
+        <div id="overlay-resultado"></div>
+        <div class="overlay-btns">
+          <button id="btn-reiniciar" class="btn-pixel">↺ JOGAR NOVAMENTE</button>
+          <button id="btn-inicio" class="btn-pixel">⌂ INÍCIO</button>
+        </div>
+      </div>
+
+      <div id="hud-p1" class="hud-player hud-top">
+        <div class="hud-nome vanellope-cor">💜 VANELLOPE</div>
+        <div id="hud-fase-p1" class="hud-fase"></div>
+        <div id="hud-vidas-p1" class="hud-vidas"></div>
+        <div id="hud-pontos-p1" class="hud-pontos"></div>
+      </div>
+
+      <canvas id="des1" width="1200" height="350"></canvas>
+      <div id="divisor"></div>
+      <canvas id="des2" width="1200" height="350"></canvas>
+
+      <div id="hud-p2" class="hud-player hud-bot">
+        <div class="hud-nome taffyta-cor">🩷 TAFFYTA</div>
+        <div id="hud-fase-p2" class="hud-fase"></div>
+        <div id="hud-vidas-p2" class="hud-vidas"></div>
+        <div id="hud-pontos-p2" class="hud-pontos"></div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

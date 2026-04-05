@@ -1,79 +1,69 @@
-# Candy Rush
+# 🍬 Candy Rush
 
-Candy Rush é um jogo 2D desenvolvido com **HTML, CSS e JavaScript**, onde o jogador controla um carro em um cenário temático de doces, desviando de obstáculos e acumulando pontos ao longo das fases.
+## 1. Identificação do Projeto
 
----
-
-##  Descrição do projeto
-
-O Candy Rush foi criado com o objetivo de unir **criatividade, design e programação**, resultando em um jogo simples, divertido e visualmente atrativo.
-
-O jogador precisa sobreviver o maior tempo possível, desviando de carros inimigos que surgem continuamente na tela. Conforme o jogo avança, a dificuldade aumenta com o crescimento da velocidade e da frequência dos obstáculos.
-
-O projeto utiliza a **Canvas API** para renderização dos elementos do jogo e trabalha conceitos importantes como:
-
-- Lógica de programação
-- Programação orientada a objetos (POO)
-- Animação com JavaScript
-- Detecção de colisão
-- Manipulação de eventos do teclado
+- **Título do Projeto:** Candy Rush  
+- **Desenvolvedor:** Luiza Michielin Reinhardt  
+- **Logotipo/Banner:**  
+![Banner do jogo](./img/logopng)
 
 ---
 
-##  Como jogar
+## 2. Visão Geral do Sistema
 
-- Use as teclas:
-  -  `W` ou `↑` → subir  
-  -  `S` ou `↓` → descer  
+### 📌 Descrição
+O Candy Rush é um jogo 2D desenvolvido com HTML, CSS e JavaScript, onde o jogador controla um carro em um cenário temático de doces, desviando de obstáculos e sobrevivendo o maior tempo possível.
 
-- Objetivo:
+---
+
+### 🎯 Objetivo
+O objetivo do jogo é desviar dos carros inimigos, permanecer vivo pelo maior tempo possível e acumular pontos.
+
+---
+
+### 🍭 Tema
+O jogo possui um tema doce e colorido, inspirado em um mundo de guloseimas. O jogador dirige em uma pista estilizada, enfrentando desafios e obstáculos em um ambiente divertido.
+
+---
+
+### 🎮 Instruções de Jogabilidade
+
+- **Controles:**
+  - `W` ou `↑` → subir  
+  - `S` ou `↓` → descer  
+
+- **Objetivo do jogador:**
   - Desviar dos carros inimigos  
+  - Coletar power-ups de vida  
   - Sobreviver o máximo possível  
-  - Acumular pontos  
-
-- O jogador possui vidas limitadas
 
 ---
 
-## Mecânicas do jogo
+### ⚙️ Especificações Técnicas
 
-- Movimento contínuo do cenário  
-- Sistema de colisão  
-- Power-ups de vida  
-- Sistema de pontuação  
-- Progressão por fases  
-- Tela de vitória e Game Over  
-
----
-
-## Tecnologias utilizadas
-
-- **HTML5**
-- **CSS3**
-- **JavaScript**
-- **Canvas API**
+- Sistema de vidas limitadas  
+- Sistema de pontuação crescente  
+- Progressão de dificuldade (aumento de velocidade e obstáculos)  
+- Detecção de colisão  
+- Uso da Canvas API para renderização  
+- Programação orientada a objetos (POO)  
 
 ---
 
-## Estrutura do projeto
-📦 Candy Rush
-┣ 📂 img
-┣ 📂 models
-┃ ┗ 📄 Carro.js
-┣ 📄 index.html
-┣ 📄 jogo.html
-┣ 📄 jogo2.html
-┣ 📄 comoJogar.html
-┣ 📄 sobre.html
-┣ 📄 style.css
-┣ 📄 jogo.css
-┣ 📄 jogo2.css
-┣ 📄 jogo2.js
-┣ 📄 index.js
+### 👩‍💻 Créditos
+
+- **Desenvolvedora:** Luiza Michielin Reinhardt  
+- **Product Owner (Professor Orientador):** Carlos Roberto
 
 ---
 
-## 🚀 Como executar o projeto
+### 🌐 Link de Produção
+
+- 🔗 https://vercel.com/luizas-projects-fb422a96/candy_rush
+
+---
+
+## 3. Instruções de Instalação e Execução
 
 ### 🔽 1. Clonar o repositório
 
